@@ -1,5 +1,5 @@
-Consolas
-Large
-800x800
--28023
-94
+Arial
+Medium
+400x400
+-16711681
+44
