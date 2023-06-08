@@ -7,10 +7,10 @@ import java.util.Vector;
 
 public class PictureReturn extends PictureDataLoader{
     protected class PictureContent{//사진의 이미지가 담긴 라벨과 정답을 소유하는 클래스
-        public String answer;
+        String answer;
         public JLabel la;
         PictureContent(String ans,JLabel la){
-            this.answer=ans;
+            this.answer = ans.substring(0, ans.lastIndexOf('.'));
             this.la=la;
         }
     }
@@ -43,12 +43,6 @@ public class PictureReturn extends PictureDataLoader{
         pictureContainer.remove(0);
     }
 
-    //make wrong answer return function
-    //format is List or Vector
-    //content is not overlapping
-    //size 3
-    //메모장에 오답 선지들을 모두 작성하고
-    //파일 입출력 이용해서 오답 선지에 대한 list작성하고
-    //그 리스트를 한번 섞고
-    //인덱스 0번 1번 2번의 값을 포함하는 리스트나 벡터를 리턴
+}
+public static void main(String[] args){
 }
