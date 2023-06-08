@@ -25,6 +25,7 @@ public class ScoreWriter extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveScoreToFile();
+                dispose();
             }
         });
 
@@ -49,9 +50,5 @@ public class ScoreWriter extends JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "파일에 입력을 저장하는 중 오류가 발생했습니다: " + e.getMessage());
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(ScoreWriter::new);
     }
 }

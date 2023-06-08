@@ -117,9 +117,5 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
 
         scoreTextArea.setText(scoreBoardMessage.toString());
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(ScoreBoardManager::new);
-    }
 }
 
