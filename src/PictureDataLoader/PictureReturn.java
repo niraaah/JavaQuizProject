@@ -10,7 +10,7 @@ public class PictureReturn extends PictureDataLoader{
         public String answer;
         public JLabel la;
         PictureContent(String ans,JLabel la){
-            this.answer=ans;
+            this.answer = ans;
             this.la=la;
         }
     }
@@ -36,6 +36,8 @@ public class PictureReturn extends PictureDataLoader{
     protected PictureContent getContent(){//실질적으로 계속 쓰일 함수
         PictureContent temp  = new PictureContent(pictureContainer.get(0).answer, pictureContainer.get(0).la);
         removeContent();
+        String answerWithoutExtension = temp.answer.substring(0, temp.answer.lastIndexOf('.'));
+        temp.answer = answerWithoutExtension;
         return temp;
     }
 
