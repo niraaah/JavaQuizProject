@@ -19,7 +19,7 @@ public class MainFrame extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        ImageIcon gifIcon = new ImageIcon("home.jpeg");
+        ImageIcon gifIcon = new ImageIcon("home.jpg");
         Image image = gifIcon.getImage();
         Image resizedImage = image.getScaledInstance(600, 400, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
