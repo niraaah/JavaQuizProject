@@ -12,13 +12,14 @@ public class MainFrame extends JFrame{
     private JButton startButton;
     private JButton scoreBoardButton;
     private JButton exitButton;
+    private JButton OptionButton;
 
     public MainFrame() {
         JFrame frame = new JFrame("그림 퀴즈");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        ImageIcon gifIcon = new ImageIcon("gif/home.jpg");
+        ImageIcon gifIcon = new ImageIcon("home.jpeg");
         Image image = gifIcon.getImage();
         Image resizedImage = image.getScaledInstance(600, 400, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -28,7 +29,7 @@ public class MainFrame extends JFrame{
         JLabel TextLabel = new JLabel("Java Quiz");
         Font font = new Font("Arial", Font.BOLD, 36);
         TextLabel.setFont(font);
-        TextLabel.setBounds(215,-25,200,200);
+        TextLabel.setBounds(215,-35,200,200);
 
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -41,16 +42,13 @@ public class MainFrame extends JFrame{
         BGMThread.start();
 
         startButton = new JButton("게임 시작");
-        startButton.setBounds(200, 175, 200, 30);
+        startButton.setBounds(200, 125, 200, 30);
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GameRun game = new GameRun();
                 game.isStart = true;
 
-                startButton.setVisible(false);
-                scoreBoardButton.setVisible(false);
-                exitButton.setVisible(false);
                 panel.setVisible(false);
 
                 frame.getContentPane().add(game.JP);
@@ -63,7 +61,7 @@ public class MainFrame extends JFrame{
 
         // 순위표 보기 버튼 초기화
         scoreBoardButton = new JButton("순위표 보기");
-        scoreBoardButton.setBounds(200, 225, 200, 30);
+        scoreBoardButton.setBounds(200, 175, 200, 30);
         scoreBoardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,6 +70,16 @@ public class MainFrame extends JFrame{
             }
         });
         panel.add(scoreBoardButton);
+
+        OptionButton = new JButton("옵션");
+        OptionButton.setBounds(200, 225, 200, 30);
+        OptionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        panel.add(OptionButton);
 
         // 종료 버튼 초기화
         exitButton = new JButton("종료");
