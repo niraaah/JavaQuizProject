@@ -12,7 +12,7 @@ public class ScoreWriter extends JFrame {
     private JTextField nameTextField;
     private JButton saveButton;
 
-    public ScoreWriter() {
+    public ScoreWriter(int score) {
         setTitle("Score Writer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -24,7 +24,7 @@ public class ScoreWriter extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveScoreToFile();
+                saveScoreToFile(score);
                 dispose();
             }
         });
@@ -38,9 +38,9 @@ public class ScoreWriter extends JFrame {
         setVisible(true);
     }
 
-    public void saveScoreToFile() {
+    public void saveScoreToFile(int score) {
         String name = nameTextField.getText();
-        int score = 0; // score점수는 일단 0으로 설정하였습니다.
+         // score점수는 일단 0으로 설정하였습니다.
 
         try {
             PrintWriter writer = new PrintWriter(new FileWriter("score.txt", true));

@@ -57,7 +57,7 @@ public class GameEnd extends JFrame{
     class sendRanking implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            new ScoreWriter();
+            new ScoreWriter(score);
             dispose();
         }
     }
