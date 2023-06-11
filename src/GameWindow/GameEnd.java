@@ -42,11 +42,11 @@ public class GameEnd extends JFrame{
         JPanel temp = new JPanel();
         temp.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        JButton bt1 = new JButton("RETRY");
+        JButton bt1 = new JButton("Go To Main");
         JButton bt2 = new JButton("SAVE SCORE");
 
         bt2.addActionListener(new sendRanking());
-        bt1.addActionListener(new retryGame());
+        bt1.addActionListener(new goTomain());
 
         temp.add(bt1);
         temp.add(bt2);
@@ -62,7 +62,7 @@ public class GameEnd extends JFrame{
         }
     }
 
-    class retryGame implements ActionListener{
+    class goTomain implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {

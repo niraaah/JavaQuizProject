@@ -47,6 +47,7 @@ public class GameRun extends PictureReturn {
         JPanel tempPanel = new JPanel();
         tempPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
+        tempPanel.add(new JLabel("Timer : "));
         tempPanel.add(countLabel);
         tempPanel.add(new JLabel("Score : "));
         tempPanel.add(scoreLabel);

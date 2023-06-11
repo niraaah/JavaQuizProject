@@ -5,19 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GAME extends JFrame {
-    public static void main(String[] args){
-        new GAME();
-    }
-    public GAME(){
-        setTitle("GAME");
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-        Container c =getContentPane();
-
-        setLayout(new FlowLayout());
-        JButton btn = new JButton("START");
-        btn.addActionListener(new ActionListener() {
+public class GAME {
+    JButton gameButton;
+    public GAME(String text){
+        gameButton = new JButton(text);
+        gameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 TimerThread TT=new TimerThread();
@@ -28,15 +20,10 @@ public class GAME extends JFrame {
                 TT.start();
             }
         });
-
-        c.add(btn);
-
-        setVisible(true);
-        setSize(1280,800);
     }
 
-    void initSetting(){
-
+    public JButton getGameButton(){
+        return this.gameButton;
     }
 
 }

@@ -1,6 +1,6 @@
 package MainManager;
 
-import GameWindow.GameRun;
+import GameWindow.GAME;
 import ScoreManager.ScoreBoardManager;
 
 import javax.swing.*;
@@ -41,22 +41,9 @@ public class MainFrame extends JFrame{
         Thread BGMThread = new Thread(BGM);
         BGMThread.start();
 
-        startButton = new JButton("게임 시작");
+        GAME game = new GAME("게임시작");
+        startButton = game.getGameButton();
         startButton.setBounds(200, 125, 200, 30);
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GameRun game = new GameRun();
-                game.isStart = true;
-
-                panel.setVisible(false);
-
-                frame.getContentPane().add(game.c);
-                frame.setSize(800,600);
-                frame.revalidate();
-                frame.repaint();
-            }
-        });
         panel.add(startButton);
 
         // 순위표 보기 버튼 초기화

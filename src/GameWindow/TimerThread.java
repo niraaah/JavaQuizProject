@@ -5,6 +5,7 @@ import javax.swing.*;
 public class TimerThread extends Thread{
     JLabel la;
     int sec=0;
+    int millis=0;
     GameThread GT;
     GameRun GR;
     public void getLabel(JLabel la){
@@ -23,9 +24,10 @@ public class TimerThread extends Thread{
 
         while(sec<31){
             try {
-                sleep(1000);
-                sec++;
-                la.setText(String.valueOf(sec));
+                sleep(10);
+                millis+=10;
+                secCal();
+                la.setText(getSec());
                 if (GR.getProblemCount()>10) break;
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -35,6 +37,20 @@ public class TimerThread extends Thread{
 
         GR.dispose();
         new GameEnd(GR.getScore());
+    }
+
+    void secCal(){
+        while(millis>=1000){
+            millis-=1000;
+            sec++;
+        }
+    }
+
+    String getSec(){
+        String temp = String.valueOf(sec);
+        temp+=".";
+        temp+=String.valueOf(millis);
+        return temp;
     }
 
 }
