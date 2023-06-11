@@ -32,10 +32,9 @@ public class TimerThread extends Thread{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
         }
-
         GR.dispose();
+        System.out.println(GR.getScore());
         new GameEnd(GR.getScore());
     }
 

@@ -21,13 +21,8 @@ public class GameRun extends PictureReturn {
     protected PictureContent currentContent;
     JLabel countLabel=new JLabel("0");
     JLabel scoreLabel=new JLabel("0");
-    Timer timer;
 
-    public boolean isStart = false;
-
-    public GameRun() {
-
-    }
+    public GameRun() {}
 
     public void runGame(){
         setTitle("Game Running");
@@ -40,6 +35,7 @@ public class GameRun extends PictureReturn {
         setProblem();
 
         setSize(1280,800);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -106,7 +102,9 @@ public class GameRun extends PictureReturn {
     }
 
     void setProblem(){
+        System.out.print(problemCount+" ");
         problemCount++;
+        System.out.println(problemCount);
         this.callContent();
         this.renameFourSelect();
         this.addPicture();
@@ -116,7 +114,6 @@ public class GameRun extends PictureReturn {
     public JLabel getLabel() {
         return this.countLabel;
     }
-
 
     class AnswerEvent implements ActionListener {//게임중 정답을 누르는 버튼에 이벤트를 추가하는 메소드
         public void actionPerformed(ActionEvent e){
@@ -131,7 +128,6 @@ public class GameRun extends PictureReturn {
             setProblem();
         }
     }
-
 }
 
 

@@ -34,15 +34,14 @@ public class PictureReturn extends PictureDataLoader{
     }
 
     protected PictureContent getContent(){//실질적으로 계속 쓰일 함수
-        PictureContent temp  = new PictureContent(pictureContainer.get(0).answer, pictureContainer.get(0).la);
-        removeContent();
+        PictureContent temp  = removeContent();
         String answerWithoutExtension = temp.answer.substring(0, temp.answer.lastIndexOf('.'));
         temp.answer = answerWithoutExtension;
         return temp;
     }
 
-    private void removeContent(){
-        pictureContainer.remove(0);
+    private PictureContent removeContent(){
+        return pictureContainer.remove(0);
     }
 
     //make wrong answer return function

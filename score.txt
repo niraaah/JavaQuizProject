@@ -1,1 +1,3 @@
 King:0
+Nayng:0
+man:0

@@ -2,6 +2,7 @@ package MainManager;
 
 import GameWindow.GAME;
 import ScoreManager.ScoreBoardManager;
+import GameSettingManager.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +19,7 @@ public class MainFrame extends JFrame{
         JFrame frame = new JFrame("그림 퀴즈");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
+
 
         ImageIcon gifIcon = new ImageIcon("home.jpg");
         Image image = gifIcon.getImage();
@@ -63,7 +65,7 @@ public class MainFrame extends JFrame{
         OptionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new GameSettings();
             }
         });
         panel.add(OptionButton);
@@ -81,6 +83,7 @@ public class MainFrame extends JFrame{
 
         frame.add(panel);
         frame.setSize(600, 400);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
