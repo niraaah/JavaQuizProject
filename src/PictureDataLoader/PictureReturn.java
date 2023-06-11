@@ -34,6 +34,7 @@ public class PictureReturn extends PictureDataLoader{
     }
 
     protected PictureContent getContent(){//실질적으로 계속 쓰일 함수
+        shuffleContainer();
         PictureContent temp  = removeContent();
         String answerWithoutExtension = temp.answer.substring(0, temp.answer.lastIndexOf('.'));
         temp.answer = answerWithoutExtension;
