@@ -12,7 +12,7 @@ public class GameEnd extends JFrame{
     public GameEnd(int score){
         this.score = score;
         setTitle("GAME OVER");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         Container c = getContentPane();
         c.setLayout(new BorderLayout());

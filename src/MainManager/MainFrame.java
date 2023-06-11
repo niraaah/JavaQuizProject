@@ -51,7 +51,7 @@ public class MainFrame extends JFrame{
 
                 panel.setVisible(false);
 
-                frame.getContentPane().add(game.JP);
+                frame.getContentPane().add(game.c);
                 frame.setSize(800,600);
                 frame.revalidate();
                 frame.repaint();
