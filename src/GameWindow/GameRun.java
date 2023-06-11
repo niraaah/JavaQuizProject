@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.Random;
 
@@ -21,6 +23,7 @@ public class GameRun extends PictureReturn {
     protected PictureContent currentContent;
     JLabel countLabel=new JLabel("0");
     JLabel scoreLabel=new JLabel("0");
+    public boolean close =false;
 
     public GameRun() {}
 
@@ -33,7 +36,7 @@ public class GameRun extends PictureReturn {
         this.addEvent();
         this.setButtonLocation();
         setProblem();
-
+        addWindowListener(new windowEvent());
         setSize(1280,800);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -102,9 +105,7 @@ public class GameRun extends PictureReturn {
     }
 
     void setProblem(){
-        System.out.print(problemCount+" ");
         problemCount++;
-        System.out.println(problemCount);
         this.callContent();
         this.renameFourSelect();
         this.addPicture();
@@ -126,6 +127,12 @@ public class GameRun extends PictureReturn {
 
             c.remove(currentContent.la);
             setProblem();
+        }
+    }
+
+    class windowEvent extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            close = true;
         }
     }
 }

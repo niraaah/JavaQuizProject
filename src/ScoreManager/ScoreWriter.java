@@ -14,7 +14,7 @@ public class ScoreWriter extends JFrame {
 
     public ScoreWriter(int score) {
         setTitle("Score Writer");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new FlowLayout());
 
         JLabel nameLabel = new JLabel("기록을 저장하실 이름을 입력해주세요: ");

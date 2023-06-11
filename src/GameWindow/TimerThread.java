@@ -29,19 +29,21 @@ public class TimerThread extends Thread{
                 secCal();
                 la.setText(getSec());
                 if (GR.getProblemCount()>10) break;
+                if(GR.close) break;
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
         GR.dispose();
         System.out.println(GR.getScore());
-        new GameEnd(GR.getScore());
+        if(!GR.close) new GameEnd(GR.getScore());
     }
 
     void secCal(){
         while(millis>=1000){
             millis-=1000;
             sec++;
+            System.out.println("Timer running");
         }
     }
 
