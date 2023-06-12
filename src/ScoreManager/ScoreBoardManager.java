@@ -16,7 +16,7 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
 
     public ScoreBoardManager() {
         setTitle("Score Board Manager");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new FlowLayout());
 
         JLabel scoreLabel = new JLabel("삭제할 기록의 이름:점수를 입력하세요:");

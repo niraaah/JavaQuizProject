@@ -1,8 +1,12 @@
 package MainManager;
 
-import GameWindow.GameRun;
+import GameWindow.GAME;
 import ScoreManager.ScoreBoardManager;
+<<<<<<< HEAD
 import project_setting.GameSettings;
+=======
+import GameSettingManager.*;
+>>>>>>> origin/gamebtn
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,8 +29,18 @@ public class MainFrame extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+<<<<<<< HEAD
         layeredPane = new JLayeredPane();
         layeredPane.setLayout(null);
+=======
+
+        ImageIcon gifIcon = new ImageIcon("home.jpg");
+        Image image = gifIcon.getImage();
+        Image resizedImage = image.getScaledInstance(600, 400, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        JLabel gifLabel = new JLabel(resizedIcon);
+        gifLabel.setBounds(0,0,600,400);
+>>>>>>> origin/gamebtn
 
         SetImage();
         SetTitle();
@@ -38,6 +52,7 @@ public class MainFrame extends JFrame{
         Thread BGMThread = new Thread(BGM);
         BGMThread.start();
 
+<<<<<<< HEAD
         addStartButton();
         addScoreButton();
         addOptionButton();
@@ -86,6 +101,12 @@ public class MainFrame extends JFrame{
         });
         layeredPane.add(startButton, JLayeredPane.PALETTE_LAYER);
     }
+=======
+        GAME game = new GAME("게임시작");
+        startButton = game.getGameButton();
+        startButton.setBounds(200, 125, 200, 30);
+        panel.add(startButton);
+>>>>>>> origin/gamebtn
 
     public void addScoreButton()
     {
@@ -108,7 +129,11 @@ public class MainFrame extends JFrame{
         OptionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
                 GameSettings GameSetting = new GameSettings();
+=======
+                new GameSettings();
+>>>>>>> origin/gamebtn
             }
         });
         layeredPane.add(OptionButton, JLayeredPane.PALETTE_LAYER);
@@ -124,7 +149,16 @@ public class MainFrame extends JFrame{
                 System.exit(0);
             }
         });
+<<<<<<< HEAD
         layeredPane.add(exitButton, JLayeredPane.PALETTE_LAYER);
+=======
+        panel.add(exitButton);
+
+        frame.add(panel);
+        frame.setSize(600, 400);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+>>>>>>> origin/gamebtn
     }
 
     public static void main(String args[]){

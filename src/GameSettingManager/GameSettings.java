@@ -1,4 +1,4 @@
-package project_setting;
+package GameSettingManager;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -16,7 +16,7 @@ public class GameSettings extends JFrame {
 
     public GameSettings() {
         setTitle("Game Settings");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // Disable window resizing
 
         JPanel contentPanel = new JPanel();
