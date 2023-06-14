@@ -16,18 +16,23 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
 
     public ScoreBoardManager() {
         setTitle("Score Board Manager");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setPreferredSize(new Dimension(800, 800));
         setLayout(new FlowLayout());
 
         JLabel scoreLabel = new JLabel("삭제할 기록의 이름:점수를 입력하세요:");
+        scoreLabel.setFont(scoreLabel.getFont().deriveFont(24f));
         scoreTextField = new JTextField(10);
+        scoreTextField.setFont(scoreTextField.getFont().deriveFont(24f));
         deleteButton = new JButton("Delete");
         deleteButton.addActionListener(this);
+        deleteButton.setFont(deleteButton.getFont().deriveFont(24f));
 
         scoreTextArea = new JTextArea();
         scoreTextArea.setEditable(false);
+        scoreTextArea.setFont(scoreTextArea.getFont().deriveFont(24f));
         JScrollPane scrollPane = new JScrollPane(scoreTextArea);
-        scrollPane.setPreferredSize(new Dimension(300, 200));
+        scrollPane.setPreferredSize(new Dimension(600, 500));
 
         add(scoreLabel);
         add(scoreTextField);
@@ -118,4 +123,3 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
         scoreTextArea.setText(scoreBoardMessage.toString());
     }
 }
-
