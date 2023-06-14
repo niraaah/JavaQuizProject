@@ -115,10 +115,15 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
     private void updateScoreBoard() {
         List<String> scoreBoardData = loadScoreBoard();
         StringBuilder scoreBoardMessage = new StringBuilder();
-        scoreBoardMessage.append("점수기록\n");
 
-        for (int i = 0; i < scoreBoardData.size(); i++) {
-            scoreBoardMessage.append(i + 1).append(". ").append(scoreBoardData.get(i)).append("\n");
+        if (scoreBoardData.isEmpty()) {
+            scoreBoardMessage.append("저장된 점수가 없습니다.");
+        } else {
+            scoreBoardMessage.append("점수기록\n");
+
+            for (int i = 0; i < scoreBoardData.size(); i++) {
+                scoreBoardMessage.append(i+1).append(". ").append(scoreBoardData.get(i)).append("\n");
+            }
         }
 
         scoreTextArea.setText(scoreBoardMessage.toString());
