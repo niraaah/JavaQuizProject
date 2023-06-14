@@ -1,7 +1,8 @@
 package MainManager;
 
-import GameWindow.GameRun;
+import GameWindow.GAME;
 import ScoreManager.ScoreBoardManager;
+import GameSettingManager.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,8 @@ public class MainFrame extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        ImageIcon gifIcon = new ImageIcon("home.jpeg");
+
+        ImageIcon gifIcon = new ImageIcon("home.jpg");
         Image image = gifIcon.getImage();
         Image resizedImage = image.getScaledInstance(600, 400, Image.SCALE_SMOOTH);
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -41,22 +43,9 @@ public class MainFrame extends JFrame{
         Thread BGMThread = new Thread(BGM);
         BGMThread.start();
 
-        startButton = new JButton("게임 시작");
+        GAME game = new GAME("게임시작");
+        startButton = game.getGameButton();
         startButton.setBounds(200, 125, 200, 30);
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GameRun game = new GameRun();
-                game.isStart = true;
-
-                panel.setVisible(false);
-
-                frame.getContentPane().add(game.JP);
-                frame.setSize(800,600);
-                frame.revalidate();
-                frame.repaint();
-            }
-        });
         panel.add(startButton);
 
         // 순위표 보기 버튼 초기화
@@ -76,7 +65,7 @@ public class MainFrame extends JFrame{
         OptionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new GameSettings();
             }
         });
         panel.add(OptionButton);
@@ -94,6 +83,7 @@ public class MainFrame extends JFrame{
 
         frame.add(panel);
         frame.setSize(600, 400);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 

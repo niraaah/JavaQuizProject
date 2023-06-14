@@ -5,7 +5,7 @@ import java.awt.*;
 import java.io.File;
 import java.util.*;
 
-public class PictureDataLoader extends JPanel{
+public class PictureDataLoader extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	protected Map<String, String> pictureData; // 그림 데이터를 저장할 맵

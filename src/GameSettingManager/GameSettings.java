@@ -1,5 +1,4 @@
 package GameSettingManager;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -10,16 +9,16 @@ public class GameSettings extends JFrame {
     private JComboBox<String> windowSizeComboBox;
     private JSlider volumeSlider;
     private JButton saveButton;
-    private JButton colorButton; 
+    private JButton colorButton;
 
     // File path
     private static final String SETTINGS_FILE = "settings.txt";
 
     public GameSettings() {
         setTitle("Game Settings");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // Disable window resizing
-        
+
         JPanel contentPanel = new JPanel();
         contentPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         contentPanel.setLayout(new GridLayout(7, 2, 10, 10));
@@ -57,7 +56,7 @@ public class GameSettings extends JFrame {
         });
         add(windowSizeLabel);
         add(windowSizeComboBox);
-        
+
         // Color Button
         JLabel colorLabel = new JLabel("  Color:");
         colorButton = new JButton("Pick one!");
@@ -192,7 +191,7 @@ public class GameSettings extends JFrame {
     public void loadDefaultSettings() {
         String defaultFont = "Consolas";
         String defaultFontSize = "Medium";
-        String defaultWindowSize = "600x600";
+        String defaultWindowSize = "400x400";
         Color defaultColor = Color.WHITE;
         int defaultVolume = 50;
 
@@ -206,7 +205,44 @@ public class GameSettings extends JFrame {
         updateWindowSize();
     }
 
+    public String getSelectedFont() {
+        Object selectedItem = fontComboBox.getSelectedItem();
+        return (selectedItem != null) ? (String) selectedItem : "Consolas";
+    }
+
+    public int getFontSize() {
+        Object selectedItem = fontSizeComboBox.getSelectedItem();
+        return (selectedItem != null) ?
+                ("Small".equals(selectedItem) ? 12 : "Medium".equals(selectedItem) ? 18 : 24)
+                : 18;
+    }
+
+    public int getWindowSize() {
+        Object selectedItem = windowSizeComboBox.getSelectedItem();
+        if (selectedItem != null) {
+            String windowSize = (String) selectedItem;
+            String[] dimensions = windowSize.split("x");
+            return Integer.parseInt(dimensions[0]);
+        } else {
+            return 400;
+        }
+    }
+
+    public int getWindowColor() {
+        Color bgColor = getContentPane().getBackground();
+        return bgColor.getRGB();
+    }
+
+    public int getVolume() {
+        if (volumeSlider.getValueIsAdjusting()) {
+            return volumeSlider.getValue();
+        } else {
+            return 50;
+        }
+    }
+
     public static void main(String[] args) {
+
         SwingUtilities.invokeLater(() -> {
             try {
                 new GameSettings();

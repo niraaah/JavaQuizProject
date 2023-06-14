@@ -1,5 +1,5 @@
-Consolas
+Times New Roman
 Large
-800x800
--28023
-94
+400x400
+-3407668
+72
