@@ -1,5 +1,9 @@
 Gothic
 Medium
+<<<<<<< HEAD
 600x600
+=======
+800x800
+>>>>>>> 18386f279e05a6444d96d0ee36f36824dc5e03fb
 ffeeeeee
 50
