@@ -26,7 +26,7 @@ public class GameSettings extends JFrame {
 
         // Font ComboBox
         JLabel fontLabel = new JLabel("  Font:");
-        fontComboBox = new JComboBox<>(new String[]{"Gothic", "Times New Roman", "Consolas"});
+        fontComboBox = new JComboBox<>(new String[]{"Gothic", "휴먼엑스포", "맑은 고딕 Bold","HY견고딕","바탕","신명조"});
         fontComboBox.setToolTipText("Select the game's font");
         fontComboBox.addActionListener(e -> {
             updateFont();

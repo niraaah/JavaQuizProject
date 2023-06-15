@@ -29,6 +29,7 @@ public class GameRun extends PictureReturn {
     public GameRun() {}
 
     public void runGame(){
+        this.setTitle("Game");
         c.setBackground(settingLoader.getColor());
         c.setLayout(new BorderLayout());
 
@@ -141,5 +142,3 @@ public class GameRun extends PictureReturn {
         }
     }
 }
-
-
