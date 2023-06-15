@@ -86,14 +86,17 @@ public class GameSettingLoader {
     }
 
     public Color getColor() {
-        long unsignedColorCode = Integer.toUnsignedLong(Integer.parseInt(colorInformation));
-        String hexString = Long.toHexString(unsignedColorCode);
+        int alpha=Integer.parseInt(colorInformation.substring(0,2),16);
+        int red = Integer.parseInt(colorInformation.substring(2, 4), 16);
+        int green = Integer.parseInt(colorInformation.substring(4, 6), 16);
+        int blue = Integer.parseInt(colorInformation.substring(6, 8), 16);
 
-        int red = Integer.parseInt(hexString.substring(0, 2), 16);
-        int green = Integer.parseInt(hexString.substring(2, 4), 16);
-        int blue = Integer.parseInt(hexString.substring(4, 6), 16);
+        System.out.println("RED : "+ red+colorInformation.substring(0, 2));
+        System.out.println("GREEN : "+ green+colorInformation.substring(2, 4));
+        System.out.println("BLUE : "+ blue+colorInformation.substring(4, 6));
+        System.out.println("ALPHA : "+ alpha+colorInformation.substring(6, 8));
 
-        return new Color(red, green, blue);
+        return new Color(red,green,blue,alpha);
     }
 
 

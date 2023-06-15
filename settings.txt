@@ -1,5 +1,5 @@
-Arial
+Gothic
 Medium
-800x800
--65536
-72
+600x600
+ffff0000
+50

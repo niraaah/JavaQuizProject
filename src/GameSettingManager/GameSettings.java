@@ -26,7 +26,7 @@ public class GameSettings extends JFrame {
 
         // Font ComboBox
         JLabel fontLabel = new JLabel("  Font:");
-        fontComboBox = new JComboBox<>(new String[]{"Arial", "Times New Roman", "Consolas"});
+        fontComboBox = new JComboBox<>(new String[]{"Gothic", "Times New Roman", "Consolas"});
         fontComboBox.setToolTipText("Select the game's font");
         fontComboBox.addActionListener(e -> {
             updateFont();
@@ -107,7 +107,7 @@ public class GameSettings extends JFrame {
             String selectedFontSize = (String) fontSizeComboBox.getSelectedItem();
             String selectedWindowSize = (String) windowSizeComboBox.getSelectedItem();
             Color bgColor = getContentPane().getBackground();
-            String selectedColor = Integer.toString(bgColor.getRGB());
+            String selectedColor = Integer.toHexString(bgColor.getRGB());
             int selectedVolume = volumeSlider.getValue();
 
             writer.write(selectedFont);
@@ -173,7 +173,17 @@ public class GameSettings extends JFrame {
             fontSizeComboBox.setSelectedItem(fontSize);
             windowSizeComboBox.setSelectedItem(windowSizeString);
 
-            Color bgColor = new Color(Integer.parseInt(colorRGB));
+            int alpha=Integer.parseInt(colorRGB.substring(0,2),16);
+            int red = Integer.parseInt(colorRGB.substring(2, 4), 16);
+            int green = Integer.parseInt(colorRGB.substring(4, 6), 16);
+            int blue = Integer.parseInt(colorRGB.substring(6, 8), 16);
+
+            System.out.println("RED : "+ red+colorRGB.substring(0, 2));
+            System.out.println("GREEN : "+ green+colorRGB.substring(2, 4));
+            System.out.println("BLUE : "+ blue+colorRGB.substring(4, 6));
+            System.out.println("ALPHA : "+ alpha+colorRGB.substring(6, 8));
+
+            Color bgColor = new Color(red,green,blue,alpha);
             getContentPane().setBackground(bgColor);
             int volumeValue = volume.isEmpty() ? 50 : Integer.parseInt(volume);
 

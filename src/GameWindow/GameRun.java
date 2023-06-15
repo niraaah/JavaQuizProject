@@ -29,7 +29,6 @@ public class GameRun extends PictureReturn {
     public GameRun() {}
 
     public void runGame(){
-
         c.setBackground(settingLoader.getColor());
         c.setLayout(new BorderLayout());
 
@@ -62,7 +61,7 @@ public class GameRun extends PictureReturn {
         fourSelect=new JButton[4];
         for(int i =0;i<4;i++){
             fourSelect[i]=new JButton();
-            fourSelect[i].setFont(new Font(Font.DIALOG,Font.PLAIN,settingLoader.getFontSize()));
+            fourSelect[i].setFont(new Font(settingLoader.getFont(),Font.PLAIN,settingLoader.getFontSize()));
             fourSelect[i].setSize(settingLoader.getButtonWide(),settingLoader.getButtonHeight());
         }
     }//한번만 실행
