@@ -20,7 +20,7 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
         setPreferredSize(new Dimension(800, 800));
         setLayout(new FlowLayout());
 
-        JLabel scoreLabel = new JLabel("삭제할 기록의 이름:점수를 입력하세요:");
+        JLabel scoreLabel = new JLabel("삭제할 기록의 \"이름:점수\"를 입력하세요:");
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(24f));
         scoreTextField = new JTextField(10);
         scoreTextField.setFont(scoreTextField.getFont().deriveFont(24f));
