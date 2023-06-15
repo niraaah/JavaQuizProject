@@ -16,18 +16,23 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
 
     public ScoreBoardManager() {
         setTitle("Score Board Manager");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        setPreferredSize(new Dimension(800, 800));
         setLayout(new FlowLayout());
 
         JLabel scoreLabel = new JLabel("삭제할 기록의 이름:점수를 입력하세요:");
+        scoreLabel.setFont(scoreLabel.getFont().deriveFont(24f));
         scoreTextField = new JTextField(10);
+        scoreTextField.setFont(scoreTextField.getFont().deriveFont(24f));
         deleteButton = new JButton("Delete");
         deleteButton.addActionListener(this);
+        deleteButton.setFont(deleteButton.getFont().deriveFont(24f));
 
         scoreTextArea = new JTextArea();
         scoreTextArea.setEditable(false);
+        scoreTextArea.setFont(scoreTextArea.getFont().deriveFont(24f));
         JScrollPane scrollPane = new JScrollPane(scoreTextArea);
-        scrollPane.setPreferredSize(new Dimension(300, 200));
+        scrollPane.setPreferredSize(new Dimension(600, 500));
 
         add(scoreLabel);
         add(scoreTextField);
@@ -109,13 +114,17 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
     private void updateScoreBoard() {
         List<String> scoreBoardData = loadScoreBoard();
         StringBuilder scoreBoardMessage = new StringBuilder();
-        scoreBoardMessage.append("점수기록\n");
 
-        for (int i = 0; i < scoreBoardData.size(); i++) {
-            scoreBoardMessage.append(i + 1).append(". ").append(scoreBoardData.get(i)).append("\n");
+        if (scoreBoardData.isEmpty()) {
+            scoreBoardMessage.append("저장된 점수가 없습니다.");
+        } else {
+            scoreBoardMessage.append("점수기록\n");
+
+            for (int i = 0; i < scoreBoardData.size(); i++) {
+                scoreBoardMessage.append(i+1).append(". ").append(scoreBoardData.get(i)).append("\n");
+            }
         }
 
         scoreTextArea.setText(scoreBoardMessage.toString());
     }
 }
-
