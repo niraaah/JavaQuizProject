@@ -16,7 +16,6 @@ public class ScoreBoardManager extends JFrame implements ActionListener {
 
     public ScoreBoardManager() {
         setTitle("Score Board Manager");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         setPreferredSize(new Dimension(800, 800));
         setLayout(new FlowLayout());
