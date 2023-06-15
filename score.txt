@@ -5,3 +5,5 @@ Kal:10
 KingMan:6
 :6
 MAIN:5
+asdasd:3
+asdasd:3

@@ -14,8 +14,8 @@ public class ScoreWriter extends JDialog {
 
     public ScoreWriter(int score) {
         super(new JFrame(),"Score Write!",true);
-        super.setLocationRelativeTo(null);
         super.setSize(200,100);
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new FlowLayout());
 
@@ -36,6 +36,7 @@ public class ScoreWriter extends JDialog {
         add(saveButton);
 
         pack();
+        super.setLocationRelativeTo(null);
         setVisible(true);
     }
 

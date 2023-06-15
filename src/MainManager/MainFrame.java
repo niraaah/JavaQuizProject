@@ -46,6 +46,7 @@ public class MainFrame extends JFrame{
 
         add(layeredPane);
         setSize(600, 400);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
