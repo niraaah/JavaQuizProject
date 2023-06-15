@@ -1,5 +1,5 @@
 Arial
-Large
+Medium
 800x800
 -65536
 72
