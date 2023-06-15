@@ -2,6 +2,7 @@ package GameWindow;
 
 import PictureDataLoader.PictureReturn;
 import getAnswer.getNotAnswer;
+import GameSettingManager.GameSettings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,22 +29,25 @@ public class GameRun extends PictureReturn {
     public GameRun() {}
 
     public void runGame(){
-        setTitle("Game Running");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        c.setBackground(settingLoader.getColor());
         c.setLayout(new BorderLayout());
+
         setInformationLocation();
         this.setButtonGroup();
         this.addEvent();
         this.setButtonLocation();
         setProblem();
+
         addWindowListener(new windowEvent());
-        setSize(1280,800);
+        setSize(settingLoader.getWindowSize(),settingLoader.getWindowSize());
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     void setInformationLocation(){
         JPanel tempPanel = new JPanel();
+        tempPanel.setBackground(settingLoader.getColor());
         tempPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         tempPanel.add(new JLabel("Timer : "));
@@ -58,12 +62,14 @@ public class GameRun extends PictureReturn {
         fourSelect=new JButton[4];
         for(int i =0;i<4;i++){
             fourSelect[i]=new JButton();
-            fourSelect[i].setSize(40,20);
+            fourSelect[i].setFont(new Font(Font.DIALOG,Font.PLAIN,settingLoader.getFontSize()));
+            fourSelect[i].setSize(settingLoader.getButtonWide(),settingLoader.getButtonHeight());
         }
     }//한번만 실행
 
     void setButtonLocation(){//버튼을 하단부에 위치시키는 매소드
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(settingLoader.getColor());
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         for(int i =0;i<4;i++) {
             buttonPanel.add(fourSelect[i]);

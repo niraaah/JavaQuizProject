@@ -1,5 +1,5 @@
-Times New Roman
+Arial
 Large
-400x400
--3407668
+800x800
+-65536
 72

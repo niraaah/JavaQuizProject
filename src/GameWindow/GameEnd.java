@@ -7,23 +7,33 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameEnd extends JFrame{
+public class GameEnd extends JDialog{
     int score;
     public GameEnd(int score){
+        super(new Frame(),"GameOver",true);
+        super.setSize(500,400);
+        super.setLocationRelativeTo(null);
         this.score = score;
-        setTitle("GAME OVER");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         Container c = getContentPane();
         c.setLayout(new BorderLayout());
 
+        addImage(c);
         addScore(c);//use North
         addSelection(c);//use Center
 
         setVisible(true);
-        setSize(500,400);
+
     }
 
+    void addImage(Container c){
+        ImageIcon gifIcon = new ImageIcon("src/GameWindow/endGameBackGround.gif");
+        JLabel gifLabel = new JLabel(gifIcon);
+        gifLabel.setBackground(Color.BLACK);
+        gifLabel.setOpaque(true);
+        c.add(gifLabel,BorderLayout.CENTER);
+    }
     void addScore(Container c){
         JPanel temp = new JPanel();
         temp.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -31,13 +41,16 @@ public class GameEnd extends JFrame{
         JLabel la = new JLabel();
         la.setText("Total Score : "+String.valueOf(score));
         la.setHorizontalAlignment(0);
+        la.setForeground(Color.WHITE);
+        la.setFont(new Font("Gothic",Font.PLAIN,26));
 
+        temp.setOpaque(true);
+        temp.setBackground(Color.black);
         temp.add(la);
 
-        c.add(temp,BorderLayout.CENTER);
+        c.add(temp,BorderLayout.NORTH);
 
     }
-
     void addSelection(Container c){
         JPanel temp = new JPanel();
         temp.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -46,10 +59,14 @@ public class GameEnd extends JFrame{
         JButton bt2 = new JButton("SAVE SCORE");
 
         bt2.addActionListener(new sendRanking());
+        bt2.setFont(new Font("Gothic",Font.PLAIN,26));
         bt1.addActionListener(new goTomain());
+        bt1.setFont(new Font("Gothic",Font.PLAIN,26));
 
         temp.add(bt1);
         temp.add(bt2);
+        temp.setOpaque(true);
+        temp.setBackground(Color.black);
 
         c.add(temp,BorderLayout.SOUTH);
     }
@@ -61,7 +78,6 @@ public class GameEnd extends JFrame{
             dispose();
         }
     }
-
     class goTomain implements ActionListener{
 
         @Override

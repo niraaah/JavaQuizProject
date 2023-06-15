@@ -8,12 +8,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class ScoreWriter extends JFrame {
+public class ScoreWriter extends JDialog {
     private JTextField nameTextField;
     private JButton saveButton;
 
     public ScoreWriter(int score) {
-        setTitle("Score Writer");
+        super(new JFrame(),"Score Write!",true);
+        super.setLocationRelativeTo(null);
+        super.setSize(200,100);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new FlowLayout());
 
@@ -34,7 +36,6 @@ public class ScoreWriter extends JFrame {
         add(saveButton);
 
         pack();
-        setLocationRelativeTo(null);
         setVisible(true);
     }
 

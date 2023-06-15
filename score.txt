@@ -2,3 +2,5 @@ King:0
 Nayng:0
 man:0
 Kal:10
+KingMan:6
+:6
