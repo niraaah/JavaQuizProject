@@ -1,5 +1,6 @@
 package MainManager;
 
+import GameWindow.GAME;
 import GameWindow.GameRun;
 import ScoreManager.ScoreBoardManager;
 import GameSettingManager.GameSettings;
@@ -68,22 +69,9 @@ public class MainFrame extends JFrame{
 
     public void addStartButton()
     {
-        startButton = new JButton("게임 시작");
+        GAME game = new GAME("게임시작");
+        startButton = game.getGameButton();
         startButton.setBounds(200, 125, 200, 30);
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GameRun game = new GameRun();
-                game.isStart = true;
-
-                layeredPane.setVisible(false);
-
-                add(game.JP);
-                setSize(800,600);
-                revalidate();
-                repaint();
-            }
-        });
         layeredPane.add(startButton, JLayeredPane.PALETTE_LAYER);
     }
 
